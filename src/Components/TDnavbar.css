@@ -1,0 +1,140 @@
+.NContainer{
+    margin:0 auto;
+    max-width: 90%;
+    display: flex;
+    box-sizing:border-box;
+}
+body {
+    background-color: #F8F8FF;
+    font-family: var(--font-family);
+  }
+.navbar{
+    justify-content: space-between;
+    font-weight: bold;
+    display: flex;
+    color:black;
+    gap: 30px;
+    align-items: center;
+    margin-top: 10px;
+    /* margin: auto; */
+}
+.logo{
+    width: 200px;
+    height: auto;
+}
+.navdiv{
+    gap: 20px;
+    margin-left: 116%;
+    display: flex;
+    /* align-items: end; */
+}
+.navdiv a {
+    text-decoration: none; /* Remove underline */
+    color: black;
+    font-size: 18px;
+    font-weight: 600; /* Adjust font weight */
+  }
+  .central{
+    margin-top: -65px;
+    margin-left: 560px;                                                                                                                            
+  }
+  .control{
+    background-color:#f8f9fa !important;
+    color:darkblue !important;
+    margin-left: 360px;
+    width: 30%;
+    height:49px;
+    line-height: 1.5px;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: 9px;
+    padding:13px;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  .control ::placeholder{
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    margin-top: 5px;
+  }
+  .dbtn{
+    margin-left: 12px;
+    size: 67px;
+    background-color: darkblue;
+    border-radius: 10px ;
+    border: 0 solid lightgray; 
+    width: 120px; 
+    height: 50px;
+    color:#f8f9fa
+  }
+  .dbtn:hover{
+    background-color: darkblue;
+  }
+  .div2{
+   width: 50px;
+   height: 50px;
+   border-radius: 25px;
+   margin-top: 15px;
+   margin-left: 64px;
+   justify-content: space-b tween;
+  }
+  .div2:hover{
+    background-color: lightgrey;
+    cursor:pointer;
+  }
+  .menubtn{
+    width: 20px;
+    height: 20px;
+    margin-top: 17px;
+  }
+  .div3{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+  }
+  .location{
+    width: 25%;
+    height: 25px;
+    margin-left: 105px;
+    color: darkblue;
+    border: 0 solid lightgray;
+    border-radius: 5px;
+    outline: none;
+  }
+  .location:hover{
+    background-color:gainsboro !important;
+    cursor: pointer;
+  }
+  .para{
+    margin-top: -35px;
+    font-size: 12px;
+    width: 50%;
+    margin-right: -90px;
+    margin-left: -210px;
+    /* text-align: left; */
+    color: darkgrey;
+    font-weight: 300px;
+    line-height: 0;
+  
+  }
+  .Rslider{
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+    /* justify-content: center;
+    align-items: center; */
+   /* padding-bottom: 24%; */
+  }
+  .sectionMargin{
+    margin-top: 112px;
+  
+  }
+  .Sdiv{
+    width:1100px;
+    height:30px;
+    justify-content: center;
+    align-items: center;
+  }
