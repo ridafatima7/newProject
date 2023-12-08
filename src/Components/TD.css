@@ -257,8 +257,8 @@
     height: 8px; 
     margin: 0 4px;
   }
-  .swiper-pagination-bullet-active {
-    background-color: blue;
+  .swiper-pagination-bullet::active {
+    background-color: red;
   }
   
 

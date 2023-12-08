@@ -1,14 +1,33 @@
 import React from 'react';
-import { Navigation, Pagination, Autoplay,Scrollbar, A11y } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay,Scrollbar, A11y,EffectCoverflow  } from 'swiper/modules';
+import { Swiper, SwiperSlide} from 'swiper/react';
+import  { useState, useEffect } from 'react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css';
 import "./TD.css";
 import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import background from "./Images/carosel.jpg";
+const Ticker = () => {
+  const tickerItems = ['TEZZ is here!Order Now', 'TEZZ is here!Order Now', 'TEZZ is here!Order Now'];
+  const tickerInterval = 2000;
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const tickerIntervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % tickerItems.length);
+    }, tickerInterval);
+
+    return () => {
+      clearInterval(tickerIntervalId);
+    };
+  }, [tickerItems, tickerInterval]);
+
+  return <div className="ticker">{tickerItems[currentIndex]}</div>;
+};
 const TDSlider = () => {
    //  const settings = {
    //      dots: true,
@@ -41,14 +60,25 @@ const TDSlider = () => {
              <img src={background} alt='meal' />
           </div>
         </Slider> */}
+        
         <Swiper
-        modules={[Navigation, Pagination, Autoplay, A11y]}
+        modules={[EffectCoverflow,Navigation, Pagination, Autoplay, A11y]}
         spaceBetween={50}
         slidesPerView={1}
-        // centeredSlides={true}
-        // spaceBetween={30}
-        // loop={true}
-        // keyboardControl={true}
+        // effect={"coverflow"}
+        // slidesPerView={"auto"}
+        grabCursor={true}
+        centeredSlides={true}
+        coverflowEffect={
+          {
+            rotate:0,
+            strech:0,
+            depth:100,
+            modifier:2.5
+          }
+        }
+        loop={true}
+        keyboardControl={true}
         navigation={false}
         pagination={{
           clickable: true,
@@ -57,6 +87,8 @@ const TDSlider = () => {
           //   return `<span className="${className} custom-dot"></span>`;
           // }
         }}
+        className='swiper-container'
+        simulateTouch={true}
         autoplay={{ delay: 1000, disableOnInteraction: false }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
@@ -65,9 +97,10 @@ const TDSlider = () => {
           <h2>Moving Text Example</h2>
           <p>Your moving text content goes here.</p>
         </div> */}
-        <SwiperSlide > <img style={{height:'15rem',width:'78rem',borderRadius:'9px'}}  src={background} alt='meal' /></SwiperSlide>
-        <SwiperSlide> <img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
-        <SwiperSlide> <img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
+
+        <SwiperSlide > <Ticker /><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}}  src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide> <Ticker /><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide> <Ticker /><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
       </Swiper>
     </>
   )
