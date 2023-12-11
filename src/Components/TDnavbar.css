@@ -33,12 +33,14 @@
     text-align: center;
     align-items: center;
     flex-wrap: nowrap;
+    /* white-space: nowrap; */
   }
   .menu-link a svg {
     font-size: 24px; 
   }
   .menu-link span {
     flex-wrap: nowrap;
+    white-space: nowrap;
   }
   .central
   {

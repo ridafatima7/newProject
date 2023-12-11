@@ -8,6 +8,8 @@ import {Link} from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { BsList } from "react-icons/bs";
+import { MdOutlineFeaturedPlayList } from "react-icons/md";
+import { FiShoppingBag } from "react-icons/fi";
 import { slide as Menu } from 'react-burger-menu';
 import { GiHamburgerMenu } from "react-icons/gi";
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,13 +37,13 @@ const TNavbar = () => {
              </div>
              <div>
               <Link to="/men">
-                <BsList />
+                <FiShoppingBag />
                 <span>My Orders</span>
               </Link>
             </div>
             <div>
               <Link to="/women">
-                <BsShop />
+                <MdOutlineFeaturedPlayList />
                 <span>Categories</span>
               </Link>
             </div>
@@ -58,12 +60,13 @@ const TNavbar = () => {
               </Link>
             </div>
           </div>
-      </div>
-      <div className="hamburger-menu">
+          <div className="hamburger-menu">
         <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
           <GiHamburgerMenu />
         </a>
       </div>
+       </div>
+     
     </section >
     <section>
         <div className="section1 ">
@@ -90,7 +93,6 @@ const TNavbar = () => {
             <FaSearch className='icon' aria-hidden='true'/>
             <Button className="dbtn">Login</Button>
           </div>
-          <div></div>
         </div>
       </section>
       </div >

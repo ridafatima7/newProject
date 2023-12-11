@@ -40,12 +40,7 @@ const TezDelivery = () => {
             <span>TEZZ is here!Order Now</span>
             <span>TEZZ is here!Order Now</span>
             <span>TEZZ is here!Order Now</span>
-
           </div>
-        {/* <div className="anoucement-text text2">
-            <span>TEZZ is here!Order Now</span>
-            <span>TEZZ is here!Order Now</span>
-          </div> */}
           </>
           </Marquee >
           </div>
@@ -55,19 +50,24 @@ const TezDelivery = () => {
       </section>
       {/* ======== products section started=========== */}
       <section className="products_section container pt pb">
-      <h5 className="main_heading pb">Shop by Category</h5>
+      <div className="pb heading-box">
+      <h5 className="main_heading ">Shop by Category</h5>
+      <a href="#"><Button className="see-all">See all</Button></a>
+          </div>
       <div className="products_grid">
           {DataProduct.map((item, index) => (
               <div className="products_grid_item">
                 <img src={item.image} alt="img" />
                 <p>{item.name}</p>
-                
               </div>
           ))}
       </div>
     </section>
       <section className="container pt pb">
-            <h5 className="main_heading pb">Exclusive Offers</h5>
+        <div className="pb heading-box">
+            <h5 className="main_heading">Exclusive Offers</h5>
+            <a href="#"><Button className="see-all">See all</Button></a>
+          </div>
           {/* <div className="popular-exclusive"> */}
           <Swiper
           modules={[Navigation, Pagination, A11y]}
@@ -98,7 +98,10 @@ const TezDelivery = () => {
           {/* </div> */}
       </section>
       <section className="container pt pb">
-            <h5 className="main_heading pb">Most Selling</h5>
+      <div className="pb heading-box">
+            <h5 className="main_heading ">Most Selling</h5>
+            <a href="#"><Button className="see-all">See all</Button></a>
+          </div>
           {/* <div className="popular-exclusive"> */}
           <Swiper
           modules={[Navigation, Pagination, A11y]}

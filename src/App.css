@@ -23,9 +23,15 @@ body {
   margin-bottom: 2rem;
 }
 .main_heading {
+  /* font-size: 1.2rem;
+  font-weight: 900;
+  text-align:left; */
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
   font-size: 1.2rem;
   font-weight: 900;
-  text-align:left;
+  text-align: left;
 }
 .loader{
   /* width:100vh; */

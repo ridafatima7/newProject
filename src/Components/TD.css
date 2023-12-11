@@ -12,6 +12,24 @@
     align-items: center;
     min-height: 16em;
 }
+.products_grid_item:hover{
+  cursor: pointer;
+}
+.heading-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heading-box a{
+  text-decoration: none;
+}
+.see-all{
+  background-color: #F8F8FF;
+  color:midnightblue;
+  display: block;
+  border: none;
+  cursor:pointer;
+}
 .products_grid_item img{
   padding-bottom: 10px;
 }
@@ -189,7 +207,7 @@
   color:#374151;
   font-size:20px;
   font-weight:600;
-  margin-left: 10px;
+  margin-right: 200px;
 }
 .addtocard{
   width:40px;
@@ -202,7 +220,7 @@
   justify-content: center;
   /* margin-left: 160.5px; */
   margin-top: -40px;
-  margin-left: 120px;
+  margin-left: 190px;
 }
 .addtocard p{
   font-size: 26px;
@@ -212,7 +230,7 @@
   color: #8c8c8c;
   font-size:14px;
   font-weight:500;
-  margin-left: 13px;
+  margin-left: 5px;
   text-decoration: line-through red;
 }
 .anoucement{
@@ -252,6 +270,11 @@
 .text2 span:last-child{
   margin-right: 1rem;
 }
+.swiperImg{
+  height:15rem;
+  width:80rem;
+  border-radius:9px;
+}
 @media only screen and (max-width: 767px)
 {
     .products_grid {
@@ -287,7 +310,6 @@
   .newsletter Input {
     margin-left: 90px;
   }
-  
   .swiper-pagination-bullet {
     background-color:#e3e3e3; 
     width: 8px; 
@@ -297,6 +319,10 @@
   .swiper-pagination-bullet::active {
     background-color: red;
   }
-  
+  .swiperImg{
+    height:15rem;
+    width:100rem;
+    border-radius:9px;
+  }
 
 }

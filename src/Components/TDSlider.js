@@ -73,6 +73,16 @@ const TDSlider = () => {
         }}
         className='swiper-container'
         simulateTouch={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          }
+        }}
         autoplay={{ delay: 1000, disableOnInteraction: false }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
@@ -82,9 +92,9 @@ const TDSlider = () => {
           <p>Your moving text content goes here.</p>
         </div> */}
 
-        <SwiperSlide > <img style={{height:'15rem',width:'80rem',borderRadius:'9px'}}  src={background} alt='meal' /></SwiperSlide>
-        <SwiperSlide><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
-        <SwiperSlide><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide > <img className='swiperImg' src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide><img className='swiperImg' src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide><img className='swiperImg' src={background} alt='meal' /></SwiperSlide>
       </Swiper>
     </>
   )
