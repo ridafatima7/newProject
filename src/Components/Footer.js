@@ -19,8 +19,8 @@ const Footer = () => {
            <div><a href='#' className="">Privacy Policy</a></div>
            </div>
            <div>
-            <BsFacebook className=" icons " />
-            <BsInstagram className=" icons  display-5" />
+            <a href='https://www.instagram.com/tezzdelivery/'><BsFacebook className=" icons " /></a>
+            <a href='https://www.facebook.com/tezzdeliverypk'><BsInstagram className=" icons  display-5" /></a>
         </div>
         </div>
         </Container>

@@ -1,22 +1,35 @@
 .products_grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
 }
-
 .products_grid_item {
     background: #FAEBD7;
-    border-radius: 40px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 16em;
 }
+.products_grid_item img{
+  padding-bottom: 10px;
+}
+.products_grid_item p{
+  font-size: 22px;
+}
+.Exclusive{
+  width:254px;
+  border-radius: 25px;
+  /* background-color:lightgray; */
+}
+.Exclusive:hover{
+  cursor:pointer;
+}
 .popular-exclusive {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 40px;
+  gap: 17px;
 }
 .offers{
   /* width:100%; */
@@ -128,30 +141,34 @@
   color:white;
   font-size:16px;
   cursor:pointer;
-
 }
 .Exclusive_item{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 35px;
+    /* padding-top: 15px; */
     padding-bottom: 35px;
-    /* min-height: 19em; */
+    min-height: 17em;
+    width:16em;
     border-radius: 25px;
-    border: 1px solid darkgray;
+    border: 1px solid gainsboro;
 }
 .Exclusive_item img {
-    max-width: 60%; 
+    max-width: 40%; 
     height: auto; 
     display: block; 
-    margin: auto; 
+    margin-top: -1px;
+    margin-bottom: 15px;
+    /* margin: auto;  */
+}
+.prices{
+  margin-top:15px;
 }
 .item-prices{
   display:flex;
   gap:10px;
   line-height: 2;
-
 }
 .item img{
  border-radius: 15px;
@@ -177,7 +194,7 @@
 .addtocard{
   width:40px;
   height:40px;
-  border-radius: 15px;
+  border-radius: 18px;
   background-color: coral;
   color:white;
   display: flex;
@@ -188,7 +205,7 @@
   margin-left: 120px;
 }
 .addtocard p{
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 400;
 } 
 .Exclusive_old{
@@ -198,7 +215,43 @@
   margin-left: 13px;
   text-decoration: line-through red;
 }
-
+.anoucement{
+  background:#F8F8FF;
+  color:orange;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding:1rem 0;
+  font-size: 1rem;
+}
+.anoucement-text{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 2rem;
+}
+.text1 span{
+  margin-right: 3rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+.text2 span{
+  margin-right: 4rem;
+  white-space: nowrap;
+  display: inline-block;
+}
+.Rslider{
+  display: flex;
+  flex-direction: row;
+  /* margin-top: 45px; */
+  /* justify-content: center;
+  align-items: center; */
+ /* padding-bottom: 24%; */
+}
+.text2 span:last-child{
+  margin-right: 1rem;
+}
 @media only screen and (max-width: 767px)
 {
     .products_grid {
@@ -234,23 +287,7 @@
   .newsletter Input {
     margin-left: 90px;
   }
-  .loader{
-    width:100vh;
-    height:100vh;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin: auto;
-  }
-  .image-loader{
-    background-color: white;
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  
   .swiper-pagination-bullet {
     background-color:#e3e3e3; 
     width: 8px; 

@@ -3,15 +3,14 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  background-color: #F0ffff;
+  font-family: sans-serif;
+  background-color: #F8F8FF;
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
 .container {
   max-width: 90%;
   width: 100%;
@@ -23,11 +22,34 @@ body {
 .pb {
   margin-bottom: 2rem;
 }
-
 .main_heading {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 900;
   text-align:left;
+}
+.loader{
+  /* width:100vh; */
+  height:100vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: auto;
+}
+.image-loader img{
+  background-color: white;
+  padding-top: 250px;
+  /* display: flex; */
+  width:35%;
+  position: absolute;
+  top: 30%;
+  height: auto;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  left: 40%;
+  transform: translate(-30%, -50%);
 }
 
 

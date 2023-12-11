@@ -10,24 +10,8 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import background from "./Images/carosel.jpg";
-const Ticker = () => {
-  const tickerItems = ['TEZZ is here!Order Now', 'TEZZ is here!Order Now', 'TEZZ is here!Order Now'];
-  const tickerInterval = 2000;
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const tickerIntervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % tickerItems.length);
-    }, tickerInterval);
-
-    return () => {
-      clearInterval(tickerIntervalId);
-    };
-  }, [tickerItems, tickerInterval]);
-
-  return <div className="ticker">{tickerItems[currentIndex]}</div>;
-};
+  
 const TDSlider = () => {
    //  const settings = {
    //      dots: true,
@@ -67,8 +51,8 @@ const TDSlider = () => {
         slidesPerView={1}
         // effect={"coverflow"}
         // slidesPerView={"auto"}
-        grabCursor={true}
-        centeredSlides={true}
+        // grabCursor={true}
+        // centeredSlides={true}
         coverflowEffect={
           {
             rotate:0,
@@ -78,7 +62,7 @@ const TDSlider = () => {
           }
         }
         loop={true}
-        keyboardControl={true}
+        // keyboardControl={true}
         navigation={false}
         pagination={{
           clickable: true,
@@ -98,9 +82,9 @@ const TDSlider = () => {
           <p>Your moving text content goes here.</p>
         </div> */}
 
-        <SwiperSlide > <Ticker /><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}}  src={background} alt='meal' /></SwiperSlide>
-        <SwiperSlide> <Ticker /><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
-        <SwiperSlide> <Ticker /><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide > <img style={{height:'15rem',width:'80rem',borderRadius:'9px'}}  src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
+        <SwiperSlide><img style={{height:'15rem',width:'80rem',borderRadius:'9px'}} src={background} alt='meal' /></SwiperSlide>
       </Swiper>
     </>
   )

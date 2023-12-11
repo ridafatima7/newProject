@@ -1,11 +1,12 @@
-import React , { useState } from 'react'
-import{Input,Container, Navbar,Nav, Button,NavItem,NavLink, NavbarBrand,Image} from 'reactstrap';
+import React, { useState } from 'react'
+import { Input, Container, Navbar, Nav, Button, NavItem, NavLink, NavbarBrand, Image } from 'reactstrap';
 import Logo from './Images/Logo.png';
 import { FaSearch } from "react-icons/fa";
 import { BsShop } from "react-icons/bs";
+import { RiMapPin2Fill } from 'react-icons/ri';
+import {Link} from "react-router-dom";
 import { BsCart2 } from "react-icons/bs";
 import { MdShoppingCartCheckout } from "react-icons/md";
-
 import { BsList } from "react-icons/bs";
 import { slide as Menu } from 'react-burger-menu';
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -17,49 +18,63 @@ const TNavbar = () => {
     <>
       <div className='container'>
         <section className='section1'>
-      <div className="navbar" > 
-        <div >
-        <a href="/">
-          <img className='logo' src={Logo} alt="Logo" />
-        </a> 
-        </div>
-        <div className={
-            showMediaIcons ? "menu-link mobile-menu-link" : "navdiv menu-link"
-          }>
-            <div> 
-              <a href="/">Shop</a>
-            </div> 
-            <div > 
-              <a href="/men">My Orders</a>
-            </div> 
-            <div > 
-              <a href="/women">Categories</a>
-            </div> 
-            <div > 
-              <a href="/kids">Cart</a>
-            </div> 
-            <div > 
-              <a style={{fontWeight:'600%'}} href="/checkout/">Checkout</a>
-            </div>     
+          <div className="navbar" >
+            <div >
+              <a href="/">
+                <img className='logo' src={Logo} alt="Logo" />
+              </a>
             </div>
-       </div> 
-       <div className="hamburger-menu">
-            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
-              <GiHamburgerMenu />
-            </a>
+            <div className={
+              showMediaIcons ? "menu-link mobile-menu-link" : "navdiv menu-link"
+            }>
+              <div>
+              <Link to="/">
+                <BsShop />
+                <span>Shop</span>
+              </Link>
+             </div>
+             <div>
+              <Link to="/men">
+                <BsList />
+                <span>My Orders</span>
+              </Link>
+            </div>
+            <div>
+              <Link to="/women">
+                <BsShop />
+                <span>Categories</span>
+              </Link>
+            </div>
+            <div>
+              <Link to="/kids">
+                <BsCart2 />
+                <span>Cart</span>
+              </Link>
+            </div>
+            <div>
+              <Link to="/checkout/">
+                <MdShoppingCartCheckout />
+                <span>Checkout</span>
+              </Link>
+            </div>
           </div>
-       </section>
       </div>
-      <section>
-        <div className="section1">
+      <div className="hamburger-menu">
+        <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+          <GiHamburgerMenu />
+        </a>
+      </div>
+    </section >
+    <section>
+        <div className="section1 ">
           <div>
             <div className="div2">
               <BsList className="menubtn" />
             </div>
             <div className="div3">
               <p className="para">Deliver to</p>
+              <RiMapPin2Fill className='icon1' aria-hidden='true'/>
               <Input
-                placeholder="Address"
                 name="address"
                 className="bg-light location"
               />
@@ -71,13 +86,15 @@ const TNavbar = () => {
               name="mart"
               placeholder="Search from Mart"
             >
-              <FaSearch />
             </Input>
+            <FaSearch className='icon' aria-hidden='true'/>
             <Button className="dbtn">Login</Button>
           </div>
           <div></div>
         </div>
       </section>
+      </div >
+
     </>
   )
 }
