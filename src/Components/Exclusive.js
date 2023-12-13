@@ -1,6 +1,7 @@
 import React from 'react';
 import './TD.css';
 const Exclusive = (props) => {
+  console.log(props);
   return (
     <>
       <div className='Exclusive'>
@@ -9,11 +10,11 @@ const Exclusive = (props) => {
           <p>{props.name}</p>
           <div className='prices'>
             <div className='Exclusive_old'>
-              ${props.old_price}
+              ${props.price}
             </div>
             <div className='d-flex'>
               <div className='Exclusive_price-new'>
-                ${props.new_price}
+                ${props.exclusivePrice}
               </div>
               <div className='addtocard'>
                 <p>+</p>

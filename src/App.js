@@ -9,6 +9,7 @@ import TNavbar from "./Components/TNavbar";
 import ShopCategory from "./Components/ShopCategory";
 import { useState,useEffect } from "react";
 import Loader from "./Components/Loader";
+import Categories from "./Components/Categories";
 function App() {
   const [loading,setLoading]=useState(false);
   useEffect(()=>{
@@ -22,10 +23,13 @@ function App() {
       {loading ? (
         <Loader />
          ) : ( 
+          <>
+
          <BrowserRouter>
           <Routes>
             <Route path="/" element={<TezDelivery />} />
             <Route path="/home" element={<TezDelivery />} />
+            <Route path="/Categories" element={<Categories />} />
             <Route
               path="/men"
               element={<ShopCategory banner={men_banner} category="men" />}
@@ -40,6 +44,7 @@ function App() {
             />
           </Routes>
         </BrowserRouter> 
+        </>
        )}
     </div>
   );

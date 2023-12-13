@@ -33,6 +33,9 @@ body {
   font-weight: 900;
   text-align: left;
 }
+.pl{
+  margin-left: .6rem;
+}
 .loader{
   /* width:100vh; */
   height:100vh;
