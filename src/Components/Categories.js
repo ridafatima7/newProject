@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import TNavbar from "./TNavbar";
 import { Button } from "reactstrap";
+import InfiniteScroll from 'react-infinite-scroll-component';
 import api from "./apis";
+import {Link} from "react-router-dom";
 import Exclusive from "./Exclusive";
 const Categories = () => {
   const search = window.location.search;
   const params = new URLSearchParams(search);
-  //console.log(params);
   const cid = params.get("categoryId");
   const mart_id = params.get("martId");
   const [DataProduct, setData] = useState("");
   const [Products, setProducts] = useState([]);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
+  const [page,setPageNo]=useState(0);
   const [dataset, setDataset] = useState([]);
   //const [DataState, setDataState] = useState([]);
   const get_Products = async (cid, sid) => {
     console.log(cid, sid);
 
     try {
-      const get_mart_product_url = `${api}/get_martProducts?mart_id=1&cid=${cid}&sid=${sid}&limit=10&skip=0`;
+      const get_mart_product_url = `${api}/get_martProducts?mart_id=1&cid=${cid}&sid=${sid}&limit=5&skip=${page}`;
       const products = await fetch(get_mart_product_url);
       if (!products.ok) {
         throw new Error(`HTTP error! Status: ${products.status}`);
@@ -46,27 +49,6 @@ const Categories = () => {
     } catch (error) {
       console.log(error);
     }
-
-    // try {
-    //   const url2 = `${api}/get_martProducts?mart_id=1`;
-    //   console.log(url2);
-    //   const responseProducts = await fetch(`${api}/get_martProducts?mart_id=1`);
-    //   if (!responseProducts.ok) {
-    //     throw new Error(`HTTP error! Status: ${responseProducts.status}`);
-    //   }
-    //   const resultProducts = await responseProducts.json();
-    //   // const filteredProducts = resultProducts.data.filter((product) => {
-    //   //   return (
-    //   //     DataState.some((category) => category.cid === product.cid
-    //   //     )
-    //   //   );
-    //   // });
-    //   //setDataset(resultProducts.data);
-    //   setProducts(resultProducts.data);
-    //   console.log(resultProducts);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   useEffect(() => {
@@ -75,7 +57,29 @@ const Categories = () => {
 
   const FilterCat = (id) => {
     get_Products(cid, id);
+    fetchScrollData(cid,id);
+    setSelectedSubcategory((prev) => (prev === id ? prev : id));
+
   };
+  const fetchScrollData= async (cid,sid)=>{
+    setPageNo(page+5);
+    const get_Products = async (cid, sid) => {
+      console.log(cid, sid);
+      try {
+        const get_mart_product_url = `${api}/get_martProducts?mart_id=1&cid=${cid}&sid=${sid}&limit=5&skip=${page}`;
+        const products = await fetch(get_mart_product_url);
+        if (!products.ok) {
+          throw new Error(`HTTP error! Status: ${products.status}`);
+        }
+        const resultProducts = await products.json();
+        console.log(resultProducts);
+        setProducts(resultProducts.data ? resultProducts.data : []);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    get_Products(cid,sid);
+  }
   return (
     <>
       <TNavbar />
@@ -85,35 +89,62 @@ const Categories = () => {
             <h5 className="main_heading">{DataProduct.name}</h5>
             <div className="pt">
               {DataProduct.sub_categories.map((subcategory) => (
-                <Button
+                <button
                   active={true}
-                  className="subcategory pl"
+                  className={`subcategory pl ${selectedSubcategory === subcategory.sid ? 'subcat' : ''}`}
                   onClick={(e) => FilterCat(subcategory.sid)}
                   key={subcategory.sid}
                 >
                   {subcategory.name}
-                </Button>
+                </button>
               ))}
             </div>
           </div>
           <div className="pt">
+           
             <div className="popular-exclusive">
               {Products.length > 0
                 ? Products.map((item, i) => (
-                    <Exclusive
-                      key={i}
-                      id={item.id}
-                      name={item.name}
-                      image={item.image}
-                      exclusivePrice={item.exclusivePrice}
-                      price={item.price}
-                    />
-                  ))
+                  <Link  to={`/product_detail?martId=1&productId=${item.id}`} >
+                  <Exclusive
+                    key={i}
+                    id={item.id}
+                    name={item.name}
+                    image={item.image}
+                    exclusivePrice={item.exclusivePrice}
+                    price={item.price}
+                  />
+                   </Link>
+                ))
                 : null}
             </div>
+
           </div>
         </section>
       ) : null}
+      <InfiniteScroll
+        dataLength={Products.length}
+        next={fetchScrollData}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+      // below props only if you need pull down functionality
+      // refreshFunction={this.refresh}
+      // pullDownToRefresh
+      // pullDownToRefreshThreshold={50}
+      // pullDownToRefreshContent={
+      //   <h3 style={{ textAlign: 'center' }}>&#8595; Pull down to refresh</h3>
+      // }
+      // releaseToRefreshContent={
+      //   <h3 style={{ textAlign: 'center' }}>&#8593; Release to refresh</h3>
+      // }
+      >
+        {/* {items} */}
+      </InfiniteScroll>
     </>
   );
 };

@@ -1,8 +1,10 @@
 import React from 'react'
 import{Row,Container,Col} from 'reactstrap';
-import Logo from './Images/Logo.png';
+// import Logo from './Images/Logo.png';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsFacebook } from "react-icons/bs";
+import { FiPhoneCall } from "react-icons/fi";
+
 import { BsInstagram } from "react-icons/bs";
 import './Footer.css';
 const Footer = () => {
@@ -12,7 +14,7 @@ const Footer = () => {
         <div className=' Row0'>
           <div>
              <div className='text-left'>Call Us Now</div>
-              <div>+92300-7654312</div>
+              <div><FiPhoneCall /> (0300)4878399</div>
               </div>
               <div>
            <div><a href='#' className=" ">About Us</a></div>

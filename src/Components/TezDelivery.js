@@ -2,7 +2,6 @@ import React,{useEffect,useState} from "react";
 import TNavbar from "./TNavbar";
 import Footer from "./Footer";
 import { Row, Container, Col, Input, Button, InputGroup } from "reactstrap";
-import Logo from "./Images/Logo.png";
 import apis from "./apis";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navigation, Pagination, Autoplay,Scrollbar, A11y,EffectCoverflow  } from 'swiper/modules';
@@ -33,6 +32,8 @@ const TezDelivery = () => {
 	const id = params.get('id');
   const [DataProduct,setData]=useState([]);
 const [ExclusiveOffers,setExclusive]=useState([])
+const [mostSellingOffers,setSelling]=useState([])
+
 useEffect(() => {
   const fetchData = async () => {
     try {
@@ -59,23 +60,20 @@ useEffect(() => {
     } catch (error) {
       console.log(error);
     } finally {
-      // Code in the finally block if needed
+    }
+    try {
+      const response = await fetch(`${api}/get_martProducts?mart_id=1&most_selling=true&limit=10`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const result = await response.json();
+      console.log(result);
+      setSelling(result.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
     }
   };
-//   try {
-//     const response = await fetch(`${api}/get_martCategories?mart_id=1&exclusive=true`);
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-//     const result = await response.json();
-//     console.log(result);
-//     setExclusive(result.data);
-//   } catch (error) {
-//     console.log(error);
-//   } finally {
-//     // Code in the finally block if needed
-//   }
-// };
 
   fetchData();
 }, []);
@@ -174,7 +172,7 @@ useEffect(() => {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
         >
-            {ExclusiveOffers.map((item, i) =>  (
+            {mostSellingOffers.map((item, i) =>  (
               <SwiperSlide key={i}>
                 <Exclusive
                   key={i}

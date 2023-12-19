@@ -3,21 +3,22 @@
     max-width: 90%;
     box-sizing:border-box;
     margin-top: 50px;
+    width: 100%;
 }
 .Row0{
     margin-left: 5%;
-    background-color: darkblue;
-    color: aliceblue;
+    background-color:#4D5882;
+    color: #FFFFFF;
     display: flex;
     justify-content: space-around;
     padding-top: 35px;
     padding-bottom: 35px;
-    gap:74px;
+    gap:340px;
     margin-left: 4px;
 }
 .Row0 div a{
     text-decoration: none;
-    color: aliceblue;
+    color: #FFFFFF;
 }
 .icons{
     align-items: end;
@@ -26,11 +27,13 @@
     height:30px;    
 }
 .Row1{
-    background-color:midnightblue;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    background-color:#434F7B;
     text-align: center;
-    color: aliceblue;
+    color: #FFFFFF;
 }
 .Row3{
-    background-color:darkblue;
-    color: aliceblue;
+    background-color:#4D5882;
+    color: #FFFFFF;
 }

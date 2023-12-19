@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Input, Container, Navbar, Nav, Button, NavItem, NavLink, NavbarBrand, Image } from 'reactstrap';
-import Logo from './Images/Logo.png';
+import Logo from './Images/Logo.jpg';
 import { FaSearch } from "react-icons/fa";
 import { BsShop } from "react-icons/bs";
 import { RiMapPin2Fill } from 'react-icons/ri';
@@ -80,7 +80,7 @@ const TNavbar = () => {
               <RiMapPin2Fill className='icon1' aria-hidden='true'/>
               <Input
                 name="address"
-                className="bg-light location"
+                className=" location"
               />
             </div>
           </div>

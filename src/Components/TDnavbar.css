@@ -50,7 +50,7 @@
     flex-direction: row;                                                                                                                         
   }
   .control{
-    background-color:lightgray !important;
+    background-color:#F2F3F2 !important;
     color:darkblue !important;
     margin-left: -90px;
     width: 150%;
@@ -64,19 +64,23 @@
     align-items: center;
     outline: none;
   }
+  .control:hover{
+    background-color: #E8E9E8;
+  }
   .control ::placeholder{
     justify-content: center;
+    color: #7C7C7C;
     align-items: center;
     padding-top: 20px;
     margin-top: 5px;
   }
   .div3 p{
-    color:darkgrey;
+    color:#969696;
   }
   .dbtn{
     margin-left: 12px;
     size: 67px;
-    background-color: darkblue;
+    background-color: #495178;
     border-radius: 10px ;
     margin-top: 93px;
 
@@ -86,7 +90,7 @@
     color:#f8f9fa
   }
   .dbtn:hover{
-    background-color: darkblue;
+    background-color: #495178;
   }
   .div2{
    width: 50px;
@@ -123,13 +127,13 @@
     background-color: #F8F8FF;
   }
   .location:hover{
-    background-color:gainsboro !important;
+    background-color:#F0F0F0 !important;
     cursor: pointer;
   }
   .icon1 {
     size: 18px;
     margin-right: 5px;
-    color:darkslateblue; 
+    color:#15489D; 
     position: absolute;
     cursor: pointer;
     right:0;
@@ -145,7 +149,7 @@
   .icon {
     size: 18px;
     margin-right: 5px;
-    color:orange; 
+    color:#F28F47; 
     position: absolute;
     cursor: pointer;
     right:0;
@@ -165,7 +169,7 @@
     margin-right: -90px;
     margin-left: 55px;
     /* text-align: left; */
-    color: darkgrey;
+    color: #7C7C7C;
     font-weight: 300px;
     line-height: 1;
   }
