@@ -2,7 +2,6 @@ import React,{useEffect,useState} from "react";
 import TNavbar from "./TNavbar";
 import Footer from "./Footer";
 import { Row, Container, Col, Input, Button, InputGroup } from "reactstrap";
-import apis from "./apis";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navigation, Pagination, Autoplay,Scrollbar, A11y,EffectCoverflow  } from 'swiper/modules';
 import { Swiper, SwiperSlide} from 'swiper/react';
@@ -15,16 +14,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-////import DataProduct from "./DataProduct";
-import Slider from "./TDSlider";
 import TDSlider from "./TDSlider";
-import Offers from "./Offers";
-import shirt from "./Images/shirt.jpeg";
 import Exclusive from "./Exclusive";
 import "./TD.css";
-import Special from "./Special";
-import NewCollection from "./Ncollection";
-import Newsletter from "./Newsletter";
 import api from "./apis";
 const TezDelivery = () => {
   const search = window.location.search;
@@ -50,7 +42,7 @@ useEffect(() => {
     }
 
     try {
-      const response = await fetch(`${api}/get_martCategories?mart_id=1&exclusive=true`);
+      const response = await fetch(`${api}/get_martProducts?mart_id=1&exclusive=true`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -106,11 +98,11 @@ useEffect(() => {
       <section className="products_section container pt pb">
       <div className="pb heading-box">
       <h5 className="main_heading ">Shop by Category</h5>
-      <a href="#"><Button className="see-all">See all</Button></a>
+      <Link to="/categories"><Button className="see-all">See all</Button></Link>
           </div>
       <div className="products_grid">
           {DataProduct.map((item, index) => (
-             <Link to={`Categories?martId=1&categoryId=${item.cid}`} className="linkstyle"  key={index}>
+             <Link to={`categories_page?martId=1&categoryId=${item.cid}`} className="linkstyle"  key={index}>
               <div className="products_grid_item">
                 <img src={item.image} alt="img" />
                 <p>{item.name}</p>
@@ -122,12 +114,12 @@ useEffect(() => {
       <section className="container pt pb">
         <div className="pb heading-box">
             <h5 className="main_heading">Exclusive Offers</h5>
-            <a href="#"><Button className="see-all">See all</Button></a>
+            <Link to="/Exclusive-offers"><Button className="see-all">See all</Button></Link>
           </div>
           {/* <div className="popular-exclusive"> */}
           <Swiper
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={150}
+          spaceBetween={230}
           slidesPerView={5}
           grabCursor={true}
           // centeredSlides={true}
@@ -156,12 +148,12 @@ useEffect(() => {
       <section className="container pt pb">
       <div className="pb heading-box">
             <h5 className="main_heading ">Most Selling</h5>
-            <a href="#"><Button className="see-all">See all</Button></a>
+            <Link to="/most-selling-offers"><Button className="see-all">See all</Button></Link>
           </div>
           {/* <div className="popular-exclusive"> */}
           <Swiper
           modules={[Navigation, Pagination, A11y]}
-          spaceBetween={150}
+          spaceBetween={230}
           slidesPerView={5}
           grabCursor={true}
           // centeredSlides={true}

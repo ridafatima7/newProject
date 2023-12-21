@@ -12,6 +12,11 @@ import Categories from "./Components/Categories";
 import Maps from "./Components/Maps";
 import Footer from "./Components/Footer";
 import Product from "./Components/Product";
+import AboutUs from "./Components/AboutUs";
+import Category from "./Components/Category";
+import Login from "./Components/Login";
+import ExclusiveScreen from "./Components/ExclusiveScreen";
+import SellingScreen from "./Components/SellingScreen";
 function App() {
   const [loading,setLoading]=useState(false);
   useEffect(()=>{
@@ -30,10 +35,16 @@ function App() {
          <BrowserRouter>
           <Routes>
             <Route path="/" element={<TezDelivery />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/home" element={<TezDelivery />} />
-            <Route path="/Categories" element={<Categories />} />
+            <Route path="/categories" element={<Category />}></Route>
+            <Route path="/categories_page" element={<Categories />} />
             <Route path="/product_detail" element={<Product />}></Route>
-            <Route
+            <Route path="/aboutus" element={<AboutUs />}></Route>
+            <Route path="/Exclusive-offers" element={<ExclusiveScreen />}></Route>
+            <Route path="/most-selling-offers" element={<SellingScreen />}></Route>
+
+            {/* <Route
               path="/men"
               element={<ShopCategory banner={men_banner} category="men" />}
             />
@@ -44,7 +55,7 @@ function App() {
             <Route
               path="/kids"
               element={<ShopCategory banner={kids_banner} category="kids" />}
-            />
+            /> */}
           </Routes>
         </BrowserRouter> 
         </>

@@ -43,7 +43,7 @@ const TNavbar = () => {
               </Link>
             </div>
             <div>
-              <Link to="/women">
+              <Link to="/categories">
                 <MdOutlineFeaturedPlayList />
                 <span>Categories</span>
               </Link>

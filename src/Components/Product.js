@@ -10,7 +10,9 @@ const Product = () => {
   const pid = params.get("productId");
   const martid = params.get("martId");
   const [Products, setProducts] = useState([]);
-  const [ExclusiveOffers,setExclusive]=useState([])
+  const [ExclusiveOffers, setExclusive] = useState([])
+  const [showQuantityButtons, setShowQuantityButtons] = useState(false);
+  const [quantity, setQuantity] = useState(1);
   const get_Products = async () => {
 
     try {
@@ -41,44 +43,77 @@ const Product = () => {
   useEffect(() => {
     get_Products();
   }, []);
+  const addToCart = () => {
+    setShowQuantityButtons(true);
+  };
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    } else {
+      setShowQuantityButtons(false);
+    }
+  };
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+    setShowQuantityButtons(true);
+  };
+
   return (
 
     <div>
       <TNavbar />
       <section className='container pt'>
         <div className='section6'>
-        {Products.length > 0
-    ? Products.map((item, i) => (
-      <div className='product'>
-          <div className='productdiv'>
-            <img src={item.image} alt='image' />
-          </div>
-          <div className='productDetail'>
-              <p className='productDetailp'>Rs.{item.price}</p>
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-              <p className='cart'>+</p>
-          </div>
-      </div>
-           ))
-           : null}
+          {Products.length > 0 ? (
+            Products.map((item, i) => (
+              <div key={i} className='product'>
+                <div className='productdiv'>
+                  <img src={item.image} alt='image' />
+                </div>
+                {showQuantityButtons ? (
+                  <div>
+                    <div className='productDetail'>
+                      <p className='productDetailp'>Rs.{item.price}</p>
+                      <h3>{item.name}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                    <div className='product-buttons'>
+                      <button className='button-1' onClick={decreaseQuantity}>-</button>
+                      <span>{quantity}</span>
+                      <button className='button-2' onClick={increaseQuantity}>+</button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className='productDetail'>
+                    <p className='productDetailp'>Rs.{item.price}</p>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <p className='cart' onClick={addToCart}>+</p>
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            null
+          )}
         </div>
       </section>
+
       <section className='container pt'>
         <div className="pb heading-box">
           <h5 className="main_heading">Recommendations</h5>
         </div>
         <div className='popular-exclusive pb'>
-        {ExclusiveOffers.map((item, i) =>  (
-                <Exclusive
-                  key={i}
-                  id={item.id}
-                  name={item.name}
-                  image={item.image}
-                  price={item.price}
-                  exclusivePrice={item.exclusivePrice}
-                />
-            ))}
+          {ExclusiveOffers.map((item, i) => (
+            <Exclusive
+              key={i}
+              id={item.id}
+              name={item.name}
+              image={item.image}
+              price={item.price}
+              exclusivePrice={item.exclusivePrice}
+            />
+          ))}
         </div>
       </section>
       <Footer />

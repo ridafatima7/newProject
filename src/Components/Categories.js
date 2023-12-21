@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import api from "./apis";
 import {Link} from "react-router-dom";
 import Exclusive from "./Exclusive";
+import Items from "./Items";
 const Categories = () => {
   const search = window.location.search;
   const params = new URLSearchParams(search);
@@ -50,16 +51,13 @@ const Categories = () => {
       console.log(error);
     }
   };
-
   useEffect(() => {
     fetchData();
   }, []);
-
   const FilterCat = (id) => {
     get_Products(cid, id);
     fetchScrollData(cid,id);
     setSelectedSubcategory((prev) => (prev === id ? prev : id));
-
   };
   const fetchScrollData= async (cid,sid)=>{
     setPageNo(page+5);
@@ -102,11 +100,11 @@ const Categories = () => {
           </div>
           <div className="pt">
            
-            <div className="popular-exclusive">
+            <div className="exclusive_product">
               {Products.length > 0
                 ? Products.map((item, i) => (
-                  <Link  to={`/product_detail?martId=1&productId=${item.id}`} >
-                  <Exclusive
+                  <Link  to={`/product_detail?martId=1&productId=${item.id}`} className="linkstyle" >
+                  <Items
                     key={i}
                     id={item.id}
                     name={item.name}

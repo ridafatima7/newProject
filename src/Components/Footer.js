@@ -4,7 +4,7 @@ import{Row,Container,Col} from 'reactstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsFacebook } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
-
+import {Link} from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 import './Footer.css';
 const Footer = () => {
@@ -17,7 +17,7 @@ const Footer = () => {
               <div><FiPhoneCall /> (0300)4878399</div>
               </div>
               <div>
-           <div><a href='#' className=" ">About Us</a></div>
+           <div><Link to='aboutus' className=" ">About Us</Link></div>
            <div><a href='#' className="">Privacy Policy</a></div>
            </div>
            <div>
@@ -27,8 +27,8 @@ const Footer = () => {
         </div>
         </Container>
         <Container className='Row1' fluid>
-        <Row >
-           <div>Copyright 2023 Tez Delivery. All Rights Reserved</div>
+        <Row>
+           <p style={{fontSize:'14px'}}><b>Copyright 2023 Tez Delivery. All Rights Reserved</b></p>
         </Row>
       </Container>
     </>
