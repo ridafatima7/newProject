@@ -20,7 +20,7 @@
 }
 .navdiv{
     gap: 30px;
-    margin-left: 81%;
+    margin-left: 70%;
     display: flex;
     flex-wrap: nowrap;
     margin-top: -30px;
@@ -33,7 +33,6 @@
     text-align: center;
     align-items: center;
     flex-wrap: nowrap;
-    /* white-space: nowrap; */
   }
   .menu-link a svg {
     font-size: 24px; 
@@ -83,11 +82,13 @@
     background-color: #495178;
     border-radius: 10px ;
     margin-top: 93px;
-
     border: 0 solid lightgray; 
-    width: 120px; 
+    width: 90px; 
     height: 40px;
-    color:#f8f9fa
+    font-size: 16px;
+    font-weight: 400;
+    color:#f8f9fa;
+    cursor: pointer;
   }
   .dbtn:hover{
     background-color: #495178;
@@ -97,8 +98,6 @@
    height: 50px;
    border-radius: 25px;
    margin-top: 15px;
-   /* margin-left: 64px; */
-   /* justify-content: space-between; */
   }
   .div2:hover{
     background-color: lightgrey;
@@ -148,7 +147,6 @@
   }
   .icon {
     size: 18px;
-    margin-right: 5px;
     color:#F28F47; 
     position: absolute;
     cursor: pointer;
@@ -158,7 +156,7 @@
     border-radius:50%;
     border:none;
     background: none;
-    margin-right: 137px;
+    margin-right: 210px;
     margin-top: 83px;
     font-size: 18px;
   }
@@ -168,7 +166,6 @@
     width: 50%;
     margin-right: -90px;
     margin-left: 55px;
-    /* text-align: left; */
     color: #7C7C7C;
     font-weight: 300px;
     line-height: 1;
@@ -177,9 +174,6 @@
     display: flex;
     flex-direction: row;
     margin-top: 45px;
-    /* justify-content: center;
-    align-items: center; */
-   /* padding-bottom: 24%; */
   }
   .sectionMargin{
     margin-top: 112px;
@@ -295,8 +289,7 @@
       font-size: 2.5rem;
     }
   }
-  
-  @media (max-width: 520px) {
+  @media (max-width: 600px) {
     .main-nav {
       height: 6rem;
       grid-template-columns: 1rem 4fr 1fr 1fr 1rem;
@@ -308,5 +301,35 @@
     .hamburger-menu {
       display: block;
       font-size: 2.5rem;
+      margin-right: 18px;
     }
+    .section1 {
+      display: flex;
+      flex-direction: column;
+  }
+    .central {
+      margin-top: -65px;
+      margin-left: 70px;
+      display: flex;
+      flex-direction: row;
+  }
+    .control {
+      margin-left: -70px;
+      width: 150%;
+      height: 39px;
+      padding: 13px;
+      margin-top: 95px;
+      justify-content: center;
+      align-items: center;
+  }
+  .icon {
+    size: 18px;
+    position: absolute;
+    right: 0;
+    width: 15px;
+    height: 10%; 
+    margin-right: 140px;
+    margin-top: 70px;
+    font-size: 18px;
+  }
   }  

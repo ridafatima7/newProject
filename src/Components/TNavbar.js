@@ -37,7 +37,7 @@ const TNavbar = () => {
               </Link>
              </div>
              <div>
-              <Link to="/men">
+              <Link to="/my-orders">
                 <FiShoppingBag />
                 <span>My Orders</span>
               </Link>
@@ -49,7 +49,7 @@ const TNavbar = () => {
               </Link>
             </div>
             <div>
-              <Link to="/kids">
+              <Link to="/cart">
                 <BsCart2 />
                 <span>Cart</span>
               </Link>
@@ -73,7 +73,7 @@ const TNavbar = () => {
         <div className="section1 ">
           <div>
             <div className="div2">
-              <BsList className="menubtn" />
+              <Link to="/home"><BsList className="menubtn" /></Link>
             </div>
             <div className="div3">
               <p className="para">Deliver to</p>
@@ -92,7 +92,7 @@ const TNavbar = () => {
             >
             </Input>
             <FaSearch className='icon' aria-hidden='true'/>
-            <Button className="dbtn">Login</Button>
+            <Link to="/login"><Button className="dbtn">Login</Button></Link>
           </div>
         </div>
       </section>
