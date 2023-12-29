@@ -33,7 +33,33 @@
     text-align: center;
     color: #FFFFFF;
 }
+.Row0 div {
+    flex: 1; 
+}
+.call{
+    margin-top: 2px;
+    /* color: #FFFFFF; */
+}
 .Row3{
     background-color:#4D5882;
     color: #FFFFFF;
+}
+@media  screen and  (max-width: 600px) {
+.Row0 {
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    gap: 35px;
+    margin-left: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .Row0 div {
+    flex: auto; 
+  }
+  .icons {
+    margin-right: 0;
+}
 }

@@ -76,6 +76,14 @@
   .div3 p{
     color:#969696;
   }
+  .Item-Link{
+    color:black;
+
+  }
+  .Item-Link:active,
+.Item-Link:focus {
+  color: #F28F47;
+}
   .dbtn{
     margin-left: 12px;
     size: 67px;
@@ -289,7 +297,8 @@
       font-size: 2.5rem;
     }
   }
-  @media (max-width: 600px) {
+
+  @media  screen and  (max-width: 600px) {
     .main-nav {
       height: 6rem;
       grid-template-columns: 1rem 4fr 1fr 1fr 1rem;
@@ -298,6 +307,7 @@
     .social-media ul {
       height: 6rem;
     }
+    
     .hamburger-menu {
       display: block;
       font-size: 2.5rem;

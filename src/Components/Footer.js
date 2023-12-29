@@ -14,7 +14,7 @@ const Footer = () => {
         <div className=' Row0'>
           <div>
              <div className='text-left'>Call Us Now</div>
-              <div><FiPhoneCall /> (0300)4878399</div>
+              <div><FiPhoneCall className='call' /> (0300)4878399</div>
               </div>
               <div>
            <div><Link to='aboutus' className=" ">About Us</Link></div>

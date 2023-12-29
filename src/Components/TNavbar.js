@@ -31,31 +31,31 @@ const TNavbar = () => {
               showMediaIcons ? "menu-link mobile-menu-link" : "navdiv menu-link"
             }>
               <div>
-              <Link to="/">
-                <BsShop />
-                <span>Shop</span>
+              <Link to="/" >
+                <BsShop  className='Item-Link' />
+                <span className='Item-Link'>Shop</span>
               </Link>
              </div>
              <div>
-              <Link to="/my-orders">
+              <Link to="/cart" className='Item-Link'>
                 <FiShoppingBag />
                 <span>My Orders</span>
               </Link>
             </div>
             <div>
-              <Link to="/categories">
+              <Link to="/categories" className='Item-Link'>
                 <MdOutlineFeaturedPlayList />
                 <span>Categories</span>
               </Link>
             </div>
             <div>
-              <Link to="/cart">
+            <Link to="/cart" className='Item-Link'>
                 <BsCart2 />
                 <span>Cart</span>
               </Link>
             </div>
             <div>
-              <Link to="/checkout/">
+              <Link to="/checkout/" className='Item-Link'>
                 <MdShoppingCartCheckout />
                 <span>Checkout</span>
               </Link>

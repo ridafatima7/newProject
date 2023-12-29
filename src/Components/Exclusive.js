@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './TD.css';
+import { useSelector,useDispatch } from 'react-redux';
+import {addtoCart} from './CartSlice';
 const Exclusive = (props) => {
+  const dispatch=useDispatch();
+
   const [quantity, setQuantity] = useState(1);
   const [showQuantityButtons, setShowQuantityButtons] = useState(false);
   const addToCart = () => {
@@ -8,11 +12,14 @@ const Exclusive = (props) => {
   };
   const increaseQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
+    console.log(props);
+    dispatch(addtoCart(props));
   };
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity((prevQuantity) => prevQuantity - 1);
+
     }
     else {
       setShowQuantityButtons(false);

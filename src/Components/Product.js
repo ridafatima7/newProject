@@ -4,6 +4,7 @@ import Footer from './Footer';
 import api from "./apis";
 import { MdPinDrop } from 'react-icons/md';
 import Exclusive from "./Exclusive";
+import Items from './Items';
 const Product = () => {
   const search = window.location.search;
   const params = new URLSearchParams(search);
@@ -77,7 +78,7 @@ const Product = () => {
                       <h3>{item.name}</h3>
                       <p>{item.description}</p>
                     </div>
-                    <div className='product-buttons'>
+                    <div className=' productDetail product-buttons'>
                       <button className='button-1' onClick={decreaseQuantity}>-</button>
                       <span>{quantity}</span>
                       <button className='button-2' onClick={increaseQuantity}>+</button>
@@ -105,7 +106,7 @@ const Product = () => {
         </div>
         <div className='popular-exclusive pb'>
           {ExclusiveOffers.map((item, i) => (
-            <Exclusive
+            <Items
               key={i}
               id={item.id}
               name={item.name}

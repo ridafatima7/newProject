@@ -69,7 +69,21 @@ useEffect(() => {
 
   fetchData();
 }, []);
-
+const breakpoints = {
+  600: {
+    // slidesPerView: 2,
+    spaceBetween: 160,
+  },
+  768: {
+    // slidesPerView: 3,
+    spaceBetween: 230,
+  },
+  
+  1200: {
+    // slidesPerView: 5,
+    spaceBetween: 50,
+  },
+};
   return (
     <>
               <TNavbar />
@@ -122,6 +136,7 @@ useEffect(() => {
           spaceBetween={230}
           slidesPerView={5}
           grabCursor={true}
+          // breakpoints={breakpoints}
           // centeredSlides={true}
           // loop={true}
           navigation={false}
@@ -156,6 +171,7 @@ useEffect(() => {
           spaceBetween={230}
           slidesPerView={5}
           grabCursor={true}
+          // breakpoints={breakpoints}
           // centeredSlides={true}
           // loop={true}
           navigation={false}
