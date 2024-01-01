@@ -1,28 +1,52 @@
 import { createSlice } from "@reduxjs/toolkit";
-const initialState={
-  carts:[{
-    id: 75795,
-     name: 'COKE BOTTLE 1.5LTR', 
-    image: 'https://firebasestorage.googleapis.com/v0/b/tezz-d…=media&token=abbcb8bd-f373-4d69-9655-c8f7775553b2',
-  }]
-}
-const CartSlice=createSlice({
-    name:"cart",
-    initialState,
-    // {
-        // cart:[]
-    // },
-    reducers:{
-      addtoCart:(state,action)=>{
-        console.log(action.payload)
-        state.carts.push(action.payload)
-      },
-      removefromCart:(state,action)=>{
-         state.carts.filter(x=>x.id !==action.payload.id)
+
+const initialState = {
+  carts: [],
+  subtotal: 0,
+};
+
+const CartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {
+    addtoCart: (state, action) => {
+      const existingProductIndex = state.carts.findIndex(
+        (product) => product.id === action.payload.id
+      );
+      if (existingProductIndex !== -1) 
+      {
+        state.carts[existingProductIndex].qty += 1;
       }
-    }
+       else 
+      {
+        const product = { ...action.payload, qty: 1 };
+        state.carts.push(product);
+      }
+      // console.log(action.payload);
+      // const product={...action.payload,qty:1};
+      // console.log(product);
+      // state.carts.push(product);
+    },
+    removefromCart: (state, action) => {
+      const productIndex = state.carts.findIndex((x) => x.id === action.payload.id);
+      if (productIndex !== -1) {
+      const currentQty = state.carts[productIndex].qty;
+      if (currentQty > 1) {
+        state.carts[productIndex].qty -= 1;
+      } else {
+        state.carts = state.carts.filter((x) => x.id !== action.payload.id);
+      }
+  }
+  
+    },
+    Subtotal: (state, action) => {
+      state.subtotal = state.carts.reduce((total, product) => {
+        return total + product.qty * product.price; 
+      }, 0);
+    },
 
-})
+  },
+});
+
 export default CartSlice.reducer;
-export const {addtoCart,removefromCart}= CartSlice.actions;
-
+export const { addtoCart, removefromCart, Subtotal } = CartSlice.actions;

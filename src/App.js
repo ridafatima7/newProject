@@ -13,7 +13,7 @@ import ExclusiveScreen from "./Components/ExclusiveScreen";
 import SellingScreen from "./Components/SellingScreen";
 import Sidebar from "./Components/Sidebar";
 import Cart from "./Components/Cart";
-
+import Checkout from "./Components/Checkout";
 function App() {
   const [loading,setLoading]=useState(false);
   useEffect(()=>{
@@ -28,11 +28,11 @@ function App() {
         <Loader />
          ) : ( 
           <>
-
          <BrowserRouter>
           <Routes>
             <Route path="/" element={<TezDelivery />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/home" element={<Sidebar/>} />
             <Route path="/cart" element={<Cart/>} />
             <Route path="/categories" element={<Category />}></Route>

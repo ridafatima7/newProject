@@ -6,6 +6,6 @@ const rootReducer = combineReducers({
     cart: cartReducer,
   });
   
-  export const store = configureStore({
+  export const Store = configureStore({
     reducer: rootReducer,
   });

@@ -55,7 +55,7 @@ const TNavbar = () => {
               </Link>
             </div>
             <div>
-              <Link to="/checkout/" className='Item-Link'>
+              <Link to="/checkout" className='Item-Link'>
                 <MdShoppingCartCheckout />
                 <span>Checkout</span>
               </Link>
