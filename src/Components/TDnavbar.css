@@ -43,7 +43,7 @@
   }
   .central
   {
-    margin-top: -65px;
+    margin-top: 25px;
     margin-left: 710px;   
     display: flex;
     flex-direction: row;                                                                                                                         
@@ -58,7 +58,7 @@
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: 9px;
     padding:13px;
-    margin-top: 95px;
+    /* margin-top: 95px; */
     justify-content: center;
     align-items: center;
     outline: none;
@@ -89,7 +89,7 @@
     size: 67px;
     background-color: #495178;
     border-radius: 10px ;
-    margin-top: 93px;
+    /* margin-top: 93px; */
     border: 0 solid lightgray; 
     width: 90px; 
     height: 40px;
@@ -165,7 +165,7 @@
     border:none;
     background: none;
     margin-right: 210px;
-    margin-top: 83px;
+    margin-top: -10px;
     font-size: 18px;
   }
   .para{

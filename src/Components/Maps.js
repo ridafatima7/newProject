@@ -9,13 +9,18 @@ import {
 }
 from '@vis.gl/react-google-maps';
 const Maps = () => {
-    const position={lat:53.54,lng:10};
+    const position={lat: 33.6844,
+      lng: 73.0479};
+    const apiKey = process.env.REACT_APP_API_KEY;
+    console.log(apiKey);
+    const apiId = process.env.REACT_APP_API_URL;
     const [open,setopen]=useState(false); 
   return (
     <div>
-      <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-        <div style={{height:'100vh',width:'100vh'}}>
-            <Map zoon={9} center={position} mapId={process.env.NEXT_PUBLIC_MAP_ID}>
+      <APIProvider apiKey='AIzaSyA_miDifPCOd3dAu3WUms7GeCMRYMVSRz4'>
+      {/* <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}></APIProvider> */}
+        <div style={{height:'100vh',width:'216vh'}}>
+            <Map zoom={9} center={position} mapId='f354a7d216f1686c'>
                 <AdvancedMarker position={position} onClick={()=>setopen(true)}>
                     <Pin 
                       background={'grey'}

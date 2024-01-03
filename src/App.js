@@ -30,7 +30,7 @@ function App() {
           <>
          <BrowserRouter>
           <Routes>
-            <Route path="/" element={<TezDelivery />} />
+            <Route path="/" element={<Maps />} />
             <Route path="/login" element={<Login />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/home" element={<Sidebar/>} />

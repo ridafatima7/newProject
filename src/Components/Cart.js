@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removefromCart } from './CartSlice';
+import { removefromCart,removefromCross} from './CartSlice';
 import {  Subtotal } from './CartSlice';
 import { addtoCart } from './CartSlice';
 import { RxCross2 } from "react-icons/rx";
@@ -17,7 +17,7 @@ const Cart = (props) => {
   };
   useEffect(() => {
     dispatch(Subtotal());
-  }, [dispatch]);
+  }, [dispatch,cartItems]);
   return (
     <div>
       <TNavbar />
@@ -36,13 +36,13 @@ const Cart = (props) => {
                     <div className='cart-div2'>
                       <div className='Item-info'>
                         <h5>{item.name}</h5>
-                        <RxCross2 className='cross' size={24} />
+                        <RxCross2 className='cross' size={24} onClick={() => dispatch(removefromCross({ id: item.id }))} />
                       </div>
                       <div className='cart-quantity'>
                         <div>
                           <div className='cart-buttons'>
                             {item.qty > 1 ? (
-                              <button onClick={() => dispatch(removefromCart({ id: item.id }))} className='cart-button-1'>
+                              <button onClick={() => dispatch(removefromCart({ id: item.id }))} className='cart-button-3'>
                                 -
                               </button>
                             ) : (
@@ -55,7 +55,7 @@ const Cart = (props) => {
                           </div>
                         </div>
                         <div className='cart-price'>
-                          <h6>Rs {item.price}</h6>
+                          <h6>Rs {item.price*item.qty}</h6>
                         </div>
                       </div>
                     </div>
@@ -67,7 +67,7 @@ const Cart = (props) => {
         }
       </div>
       <section className='container '>
-        <div className='cart-container' style={{ backgroundImage: 'url("/Images/texture.avif")', borderRadius: "15px", backgroundRepeat: 'none' }}>
+        <div className='cart-container-2' >
           <div className='cart-checkout'>
             <div className='cart-subtotal'>
               <h5>Sub-Total</h5>
@@ -80,7 +80,7 @@ const Cart = (props) => {
               </div>
               <div className='cart-subtotal'>
                 <h5>Total</h5>
-                <h5>Rs 4560</h5>
+                <h5>{subtotal.subtotal}</h5>
               </div>
               <div></div>
               <button className='checkout-button'>CHECKOUT</button>

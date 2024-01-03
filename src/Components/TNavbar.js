@@ -31,13 +31,13 @@ const TNavbar = () => {
               showMediaIcons ? "menu-link mobile-menu-link" : "navdiv menu-link"
             }>
               <div>
-              <Link to="/" >
-                <BsShop  className='Item-Link' />
+              <Link to="/" className='Item-Link' >
+                <BsShop />
                 <span className='Item-Link'>Shop</span>
               </Link>
              </div>
              <div>
-              <Link to="/cart" className='Item-Link'>
+              <Link to="/my-orders" className='Item-Link'>
                 <FiShoppingBag />
                 <span>My Orders</span>
               </Link>
